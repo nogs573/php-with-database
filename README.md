@@ -12,9 +12,10 @@ If MySQL is installed, these commands can get the database with data up and runn
 
 1. `systemctl start mysql` (if the mysql service is not already running)
 2. Enter MySQL monitor: `mysql -u [user] -p`
-3. ```sql create database dnd;\n```
-4. `exit`
-5. `python3 ./insertData.py`
+3. ```sql create database dnd;```
+4. `exit;`
+5. `mysql -u [user] -p dnd < DnD.sql`
+6. `python3 ./insertData.py`
 
 Next time you enter MySQL monitor, all the tables with data can be accessed.
 
