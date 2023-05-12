@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Page</title>
+	<title>D&D</title>
+	<link rel = "icon" href = "https://img.icons8.com/color/12x/dungeons-and-dragons.png" type = "image/x-icon">
 </head>
 <body>
 	<?php
 		// Set up database connection variables
 		$servername = "localhost";
-		$username = "myusername";
-		$password = "mypassword";
-		$dbname = "DnD";
+		$username = "bigBoss";
+		$password = "newPass";
+		$dbname = "dnd";
 
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -24,7 +25,7 @@
 		$primaryKey = 'CreatureName';
 
 		// Define the query
-		$sql = "SELECT * FROM Creature ORDER BY $primaryKey DESC LIMIT 5";
+		$sql = "SELECT * FROM Creature ORDER BY HP DESC LIMIT 5";
 
 		// Execute the query and get the result set
 		$result = mysqli_query($conn, $sql);
@@ -32,7 +33,7 @@
 		// Loop through the result set and print the data
 		if (mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)) {
-				echo "PrimaryKey: " . $row["$primaryKey"] . " - HP: " . $row["HP"] . " - AC: " . $row["AC"] . "<br>";
+				echo $row["$primaryKey"] . " - HP: " . $row["HP"] . " - AC: " . $row["AC"] . "<br>";
 			}
 		} else {
 			echo "0 results";
